@@ -1,0 +1,11 @@
+Env: IDEA IntellIJ C-2020.3 with OpenJDK 15
+1. Guess Number Game
+2. System Admin Mode
+   2.1 Only certain users can access -> users.txt: userIds with "P"
+   2.2 View current number range setting -> settings.txt
+   2.3 View user list
+   2.4 Update number range setting -> settings.txt
+3. Player Mode - Guess Number Game
+   3.1 Display Scores - scores.txt
+   3.2 Difficulty select
+   3.3 Save scores - scores.txt 
