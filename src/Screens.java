@@ -3,7 +3,14 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Utility functions for print menus.
+ */
 public class Screens {
+
+    /**
+     * Print initial/first level menu.
+     */
     public static void getInitialScreen()
     {
         System.out.println("**************Please Select your choice******************");
@@ -13,11 +20,17 @@ public class Screens {
         System.out.print("Choice->");
     }
 
+    /**
+     * Prompt for user id.
+     */
     public static void getUserId()
     {
         System.out.print("please enter your userId to continue:");
     }
 
+    /**
+     * Print System Admin menu
+     */
     public static void getSystemAdminScreen()
     {
         System.out.println("*****************System Admin Screen*********************");
@@ -30,6 +43,9 @@ public class Screens {
         System.out.print("Choice->");
     }
 
+    /**
+     * Print first level Game Play menu.
+     */
     public static void getPriorGamePlayScreen1()
     {
         getGamePlayScreen();
@@ -40,6 +56,9 @@ public class Screens {
         System.out.print("Choice->");
     }
 
+    /**
+     * Print second level Game Play menu.
+     */
     public static void getPriorGamePlayScreen2()
     {
         getGamePlayScreen();
@@ -52,11 +71,17 @@ public class Screens {
         System.out.print("Choice->");
     }
 
+    /**
+     * Print common header for Game Play menu.
+     */
     public static void getGamePlayScreen()
     {
         System.out.println("********************Game Play Screen*********************");
     }
 
+    /**
+     * Print user info data.
+     */
     public static void printUserList(Collection<User> users) {
         System.out.println("************************User List************************");
         System.out.println("********User Id**************************User Type*******");
@@ -66,13 +91,20 @@ public class Screens {
         System.out.println("*********************************************************");
     }
 
+    /**
+     * Sort and Print scores.
+     */
     public static void printGameScores(Collection<Score> scores) {
         List<Score> tmp = new ArrayList<Score>(scores);
         Collections.sort(tmp);
         System.out.println("************************Rankings*************************");
         System.out.println("********User Id**************************Score***********");
-        for(Score score : tmp) {
-            System.out.println("        " + score.getUser().getUserId() + "                                " + score.getScore());
+        Score currentScore = null;
+        for (int i = 0; i < tmp.size(); i++ ) {
+            if (!tmp.get(i).equals(currentScore)) { // never print duplicate data
+                System.out.println("        " + tmp.get(i).getUser().getUserId() + "                                " + tmp.get(i).getScore());
+                currentScore = tmp.get(i);
+            }
         }
         System.out.println("*********************************************************");
     }

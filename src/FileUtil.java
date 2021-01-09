@@ -11,6 +11,10 @@ public class FileUtil {
     static final String SCORE_DATA_FILE_PATH = "scores.txt";
     static final String DELIMITER = " ";
 
+    /**
+     * Load the user data from file users.txt
+     * @return java.util.String
+     */
     public static List<User> loadUserDataFromFile() {
         List<User> users = new ArrayList<User>();
         try {
@@ -29,6 +33,10 @@ public class FileUtil {
         return users;
     }
 
+    /**
+     * Load the setting data from file settings.txt
+     * @return int array
+     */
     public static int[] loadSettingDataFromFile() {
         int[] dataRange = new int[2];
         try {
@@ -46,6 +54,10 @@ public class FileUtil {
         return dataRange;
     }
 
+    /**
+     * Load the score data from file scores.txt
+     * @return int array
+     */
     public static List<Score> loadScoreDataFromFile() {
         Map<String, User> playerMap = loadUserDataFromFile().stream().filter(u -> u.getUserType().equals(UserType.PLAYER)).collect(Collectors.toMap(User::getUserId, u->u));
         List<Score> scores = new ArrayList<Score>();
@@ -65,6 +77,10 @@ public class FileUtil {
         return scores;
     }
 
+    /**
+     * Update the users data file users.txt
+     * @param users
+     */
     public static void updateUserData(Collection<User> users) {
         try {
             File file = new File(USER_DATA_FILE_PATH);
@@ -78,6 +94,10 @@ public class FileUtil {
         }
     }
 
+    /**
+     * Update the scores data file scores.txt
+     * @param scores
+     */
     public static void updateScoreData(Collection<Score> scores) {
         try {
             File file = new File(SCORE_DATA_FILE_PATH);
@@ -91,6 +111,10 @@ public class FileUtil {
         }
     }
 
+    /**
+     * Update the settings data file settings.ext
+     * @param s
+     */
     public static void updateSettingData(int[] s) {
         try {
             File file = new File(SETTING_DATA_FILE_PATH);

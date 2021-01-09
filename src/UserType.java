@@ -1,3 +1,6 @@
+/**
+ * user type enum
+ */
 public enum UserType {
     ADMIN('A'),
     PLAYER('P');

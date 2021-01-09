@@ -1,8 +1,11 @@
 import java.util.Objects;
 
+/**
+ * Data model for holding user info.
+ */
 public class User {
-    private String userId;
-    private UserType userType;
+    private String userId; // user id
+    private UserType userType; // user type enum
 
     public User(String userId, UserType userType) {
         this.userId = userId;
